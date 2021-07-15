@@ -8,6 +8,7 @@ import SignupPage from './SignupPage.js';
 import ConversationsListPage from './ConversationsListPage.js';
 import FeedPage from './FeedPage.js';
 import RecordFeedPage from './RecordFeedPage.js';
+import ConversationPage from './ConversationPage.js';
 
 const App = () => {
     const [logged, setLogged] = useState(false);
@@ -24,6 +25,7 @@ const App = () => {
                         <Route path='/conversations-list' exact><ConversationsListPage /></Route>
                         <Route path='/feed' exact><FeedPage /></Route>
                         <Route path='/record-feed' exact><RecordFeedPage /></Route>
+                        <Route path='/conversation' exact><ConversationPage /></Route>
                         <Redirect to='/feed' /> 
                         </>
                         :
