@@ -138,7 +138,7 @@ mainRouter.post('/post/upload/direct-message', audioUpload.single('messageaudio'
     });
     
     directMessage.save().then((result) => {
-        res.send({ audioPath, correctionAudioPath });
+        res.send();
     }).catch((err) => {
         res.status(500).send();
         console.error("ERROR : when uploading direct message : ", err);

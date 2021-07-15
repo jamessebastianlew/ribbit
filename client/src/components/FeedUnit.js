@@ -17,6 +17,7 @@ const FeedUnit = ({ feedUnit }) => {
     return (
         <>
             <UserImage username={fromUsername} />
+            <p>{fromUsername}</p>
             <audio src={'http://localhost:5000' + audioPath} controls />
             <button onClick={handleClick}>start a conversation</button>
         </>

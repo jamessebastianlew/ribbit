@@ -4,8 +4,8 @@ import { RecordView } from './components/RecordView';
 import { GlobalContext } from './contexts/global-context';
 
 const RecordFeedPage = () => {
-    const [audioStatus, setAudioStatus] = useState('');
     const [audioUrl, setAudioUrl] = useState('');
+    const [audioStatus, setAudioStatus] = useState('');
     const { globalState } = useContext(GlobalContext);
     const { username, nativeLanguage, learnLanguage } = globalState;
 
