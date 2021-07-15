@@ -45,6 +45,7 @@ mainRouter.get('/get/avatar/:username', (req, res) => {
     });
 });
 
+
 // GET get language list
 mainRouter.get('/get/languages', (req, res) => {
     Language.find({}).then((result) => {
@@ -53,6 +54,12 @@ mainRouter.get('/get/languages', (req, res) => {
         res.status(500).send();
     });
 });
+
+// GET audio file
+mainRouter.get('/get/audio/:filename', (req, res) => {
+    const { filename } = req.params;
+    res.sendFile(path.join(rootDir, 'public/uploads/audio', filename));
+})
 
 // POST add language
 mainRouter.post('/post/add-language', (req, res) => {

@@ -7,7 +7,7 @@ const FeedUnit = ({ feedUnit }) => {
     return (
         <>
             <UserImage username={fromUsername} />
-            <audio src={audioPath} controls />
+            <audio src={'http://localhost:5000' + audioPath} controls />
         </>
     );
 };
