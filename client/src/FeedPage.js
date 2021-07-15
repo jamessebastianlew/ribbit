@@ -4,6 +4,7 @@ import UserImage from './components/UserImage.js';
 import { BackButton } from './components/BackButton';
 import { GlobalContext } from './contexts/global-context.js';
 import { FeedUnit } from './components/FeedUnit.js';
+import ReactLoading from 'react-loading';
 
 
 const FeedPage = () => {
@@ -22,12 +23,13 @@ const FeedPage = () => {
                 if(newFeed.length !== feed.length || !newFeed.every((val, ind) => val._id === feed[ind]._id && val.updatedAt === feed[ind].updatedAt)) {
                     setFeed(newFeed);
                 } else {
-                    setTimeout(updateFeed, 10000);
+                    return setTimeout(updateFeed, 10000);
                 }
             });
 
         };
-        updateFeed();
+        const timeout = updateFeed();
+        return () => clearTimeout(timeout);
     }, [feed])
 
     return (
@@ -38,7 +40,11 @@ const FeedPage = () => {
                 <Link to='/record-feed' >+</Link>
             </nav>
             <div id="body">
-                <FeedUnit feedUnit={feed[current]} />
+                {
+                    feed.length === 0 ?
+                    <ReactLoading height={'20%'} width={'20%'} /> :
+                    <FeedUnit feedUnit={feed[current]} />
+                }
             </div>
             <footer></footer>
         </>
