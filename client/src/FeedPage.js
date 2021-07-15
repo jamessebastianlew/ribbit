@@ -40,6 +40,8 @@ const FeedPage = () => {
                 <Link to='/record-feed' >+</Link>
             </nav>
             <div id="body">
+                <button onClick={() => setCurrent((current) => Math.max(0, current - 1))}>{'<'}</button>
+                <button onClick={() => setCurrent((current) => Math.min(feed.length - 1, current + 1))}>{'>'}</button>
                 {
                     feed.length === 0 ?
                     <ReactLoading height={'20%'} width={'20%'} /> :
