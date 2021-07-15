@@ -1,0 +1,1 @@
+yes = { state: () => console.log("hello"), hi: (() => console.log("bye")) }
